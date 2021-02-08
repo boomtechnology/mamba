@@ -14,7 +14,7 @@ jobs:
 
       - run:
           name: Install Dependencies
-          command: ./bin/build.sh init --circle-ci
+          command: ./bin/build.sh init
 
       - run:
           name: Run Tests

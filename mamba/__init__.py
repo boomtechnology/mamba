@@ -1,7 +1,7 @@
 import contextlib
 
 
-__version__ = '0.11.2'
+__version__ = '0.11.2+gemfury'
 
 
 __all__ = [
@@ -78,6 +78,14 @@ def context(message, tag=None):
 
 def _context(message, tag=None):
     """Create a new logical sub-grouping of disabled specs."""
+    return Noop()
+
+def shared_context(message):
+    """Create a new shared context."""
+    return Noop()
+
+def included_context(message):
+    """Create a new included context."""
     return Noop()
 
 

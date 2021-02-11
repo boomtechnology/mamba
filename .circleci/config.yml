@@ -109,16 +109,21 @@ jobs:
           destination: test-reports
 
   gemfury-deploy:
+
     docker:
       - image: circleci/python:3.9.0
 
     working_directory: ~/boom-pylib
 
     steps:
-      - checkout
+      - build and deploy
+      - run:
+          name: Install Dependencies
+          command: ./bin/build.sh init
       - run:
           name: Publish to GemFury
           command: ./bin/build.sh publish
+
 
 workflows:
     version: 2

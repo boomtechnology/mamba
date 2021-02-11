@@ -116,7 +116,7 @@ jobs:
     working_directory: ~/boom-pylib
 
     steps:
-      - build and deploy
+      - checkout 
       - run:
           name: Install Dependencies
           command: ./bin/build.sh init

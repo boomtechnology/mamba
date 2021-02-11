@@ -17,6 +17,7 @@ jobs:
           name: Install Dependencies
           command: ./bin/build.sh init
 
+
       - run: # This runs the tests included in the mamba fork
           name: Run Tests
           command: |
@@ -48,6 +49,7 @@ jobs:
           command: |
             source usr/bin/activate
             pip install pipenv expects doublex doublex_expects shared_context
+
             pipenv install --dev
             pipenv run mamba
 

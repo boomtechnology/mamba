@@ -2,8 +2,9 @@
 
 USAGE=$(cat <<-END
 USAGE: $0 <command> <options>*
-    init: install all development dependencies.  First installing from
-        preinstall-requirements.txt, then from requirements.txt
+
+    init: install all development dependencies. Creates a python virtual environment
+        and then installs all dependencies using setuptools.
         --nuke: completely remove the virtual env dir and env config file before initializing
     edit: launch vim with settings to use the project’s version of python
     lint: run various programs to catch programming & style errors
@@ -403,7 +404,7 @@ function command-test {
 function command-upgrade-pip {
     build-log-init
 
-    $VIRTUAL_BIN/pip install -r requirements.txt --upgrade
+    $VIRTUAL_BIN/pip install -e . --upgrade
     $VIRTUAL_BIN/pip freeze | grep -v '^-e' > .pip.lock
 
     clean-python-packages
